@@ -1,13 +1,17 @@
 #include "main.h"
-#include "Constants.h"
 
-#ifndef EXAMPLESUBSYSTEM_H_
-#define EXAMPLESUBSYSTEM_H_
+#ifndef EXAMPLESUBSYSTEM_H
+#define EXAMPLESUBSYSTEM_H
 
-extern pros::Motor MotorName;
-
-void ExampleSubsystemMove(int speed);
-
-void ExampleSubsystemTeleop();
+class ExampleSubsystem {
+    private:
+        pros::Motor* leftExampleMotor;
+        pros::Motor* rightExampleMotor;
+    public:
+        void move(int leftSpeed, int rightSpeed);
+        void tankDrive();
+        void arcade(bool split=true, bool reversed=false);
+    ExampleSubsystem();
+};
 
 #endif

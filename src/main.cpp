@@ -16,6 +16,9 @@ void on_center_button() {
 	}
 }
 
+//! Initializing Subsystem(s):
+ExampleSubsystem* exampleSubsystem = new ExampleSubsystem();
+
 /**
  * Runs initialization code. This occurs as soon as the program is started.
  *
@@ -76,6 +79,6 @@ void autonomous() {}
 void opcontrol() {
 	while (true) {
 		pros::delay(20);
-		ExampleSubsystemTeleop();
+		exampleSubsystem->arcade();
 	}
 }

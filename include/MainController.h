@@ -1,8 +1,7 @@
 #include "main.h"
-#include "Constants.h"
 
-#ifndef MAINCONTROLLER_H_
-#define MAINCONTROLLER_H_
+#ifndef MAINCONTROLLER_H
+#define MAINCONTROLLER_H
 
 extern pros::Controller MainController;
 

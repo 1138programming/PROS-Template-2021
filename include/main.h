@@ -35,16 +35,18 @@
 #define PROS_USE_LITERALS
 
 #include "api.h"
+#include "Constants.h"
 
 #include "Subsystems/ExampleSubsystem.h"
 // #include "Subsystems/ExampleSubsystem1.h"
 // #include "Subsystems/ExampleSubsystem2.h"
 // #include "Subsystems/ExampleSubsystem3.h"
+#include "MainController.h"
 
 /**
  * You should add more #includes here
  */
-//#include "okapi/api.hpp"
+#include "okapi/api.hpp"
 //#include "pros/api_legacy.h"
 
 /**
