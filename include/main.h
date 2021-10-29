@@ -41,7 +41,6 @@
 // #include "Subsystems/ExampleSubsystem1.h"
 // #include "Subsystems/ExampleSubsystem2.h"
 // #include "Subsystems/ExampleSubsystem3.h"
-#include "MainController.h"
 
 /**
  * You should add more #includes here
@@ -69,6 +68,9 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+extern pros::Controller mainController;
+
 void autonomous(void);
 void initialize(void);
 void disabled(void);
