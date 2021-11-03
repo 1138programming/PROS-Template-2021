@@ -37,15 +37,19 @@
 #include "api.h"
 #include "Constants.h"
 
-#include "Subsystems/ExampleSubsystem.h"
-// #include "Subsystems/ExampleSubsystem1.h"
-// #include "Subsystems/ExampleSubsystem2.h"
-// #include "Subsystems/ExampleSubsystem3.h"
+#include "Subsystems/Arm.h"
+#include "Subsystems/Base.h"
+#include "Subsystems/Intake.h"
+#include "Subsystems/Pneumatics.h"
+
 
 /**
  * You should add more #includes here
  */
 #include "okapi/api.hpp"
+
+
+
 //#include "pros/api_legacy.h"
 
 /**

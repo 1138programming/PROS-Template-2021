@@ -3,8 +3,18 @@
 #ifndef CONSTANTS_H
 #define CONSTANTS_H
 //! Motor ports
-static const int leftExampleMotorPort = 1;
-static const int rightExampleMotorPort = 2;
+static const int rightArmMotorPort = 15;
+static const int leftArmMotorPort = 18;
+static const int intakeMotorPort = 19;
+static const int frontLeftBasePort = 9;
+static const int frontRightBasePort = 16;
+static const int backLeftBasePort = 3;
+static const int backRightBasePort = 10;
+
+static const std::uint8_t threeWireDevicePort = 'a';
+
+static const std::uint8_t DIGITAL_PISTON_PORT_FRONT = 'e';
+static const std::uint8_t DIGITAL_PISTON_PORT_BACK = 'h';
 // const int otherMotorNamePort = 3;
 // etc.
 
@@ -12,11 +22,6 @@ static const int rightExampleMotorPort = 2;
 const int imuPort = 20;
 
 //! ADI/Legacy Ports
-static const std::uint8_t threeWireDevicePort = 'a';
-// etc.
-
-//! Encoder ports
-const int exampleEncoderTopPort = 0;
 
 //! V5 Motor gearsets
 /*   Reference:
@@ -25,18 +30,25 @@ pros::E_MOTOR_GEARSET_18----------18:1, 200 RPM, Green gear set
 pros::E_MOTOR_GEARSET_06----------6:1, 600 RPM, Blue Gear Set
 pros::E_MOTOR_GEARSET_INVALID-----Error return code
 */
-static const pros::motor_gearset_e_t KRedGearset = pros::E_MOTOR_GEARSET_36;
-static const pros::motor_gearset_e_t KGreenGearset = pros::E_MOTOR_GEARSET_18;
-const pros::motor_gearset_e_t KBlueGearset = pros::E_MOTOR_GEARSET_06;
+const double kLowTowerPos = 2500;
+const double kMidTowerPos = 3000;
+
+static const pros::motor_gearset_e_t  baseMotorGearset = pros::E_MOTOR_GEARSET_18;
+static const pros::motor_gearset_e_t  intakeMotorGearset = pros::E_MOTOR_GEARSET_18;
+static const pros::motor_gearset_e_t  armMotorGearset = pros::E_MOTOR_GEARSET_06;
+
+//! ADI/Legacy Port
+// const std::uint8_t otherThreeWireDevicePort = 'b';
+// etc.
 
 //! Global configurations
 const pros::motor_encoder_units_e_t globalEncoderUnits = pros::E_MOTOR_ENCODER_COUNTS;
 const pros::motor_brake_mode_e_t globalBrakeMode = pros::E_MOTOR_BRAKE_HOLD;
 
 //! Motor and encoder constants
-const int KMaxMotorSpeed = 127;
-const int KMaxJoystickValue = 127;
-const int KTicksPerRotation = 360; // Encoder ticks in one revolution
-const float rotationsPerInch = 31.400156410256; //* For Base Only / TODO check if this is correct
 
+//! Encoder ports
+
+//! Global things that we need
+static const int KMaxMotorSpeed = 127;
 #endif

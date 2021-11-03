@@ -1,12 +1,11 @@
 #include "main.h"
 
-//! Initializing Controller(s):
 pros::Controller mainController(pros::E_CONTROLLER_MASTER);
 
-//! Initializing Subsystem(s):
-ExampleSubsystem* exampleSubsystem = new ExampleSubsystem();
-
-
+Arm* arm = new Arm();
+Intake* intake = new Intake();
+Base* base = new Base();
+Pneumatics* pneumatics = new Pneumatics();
 /**
  * A callback function for LLEMU's center button.
  *
@@ -22,6 +21,10 @@ void on_center_button() {
 		pros::lcd::clear_line(2);
 	}
 }
+
+//! Initializing Subsystem(s):
+
+//pros::Controller* mainController;//IN PROGRESS
 
 /**
  * Runs initialization code. This occurs as soon as the program is started.
@@ -83,7 +86,9 @@ void autonomous() {}
 void opcontrol() {
 	while (true) {
 		pros::delay(20);
-		// exampleSubsystem->arcade();
-		// exampleSubsystem->tankDrive();
+		arm->armTeleop();
+		base->tankDrive();
+		intake->intakeTeleop();
+		pneumatics->pneumaticsTeleop();
 	}
 }
