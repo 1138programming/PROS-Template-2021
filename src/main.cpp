@@ -1,5 +1,11 @@
 #include "main.h"
 
+//! Initializing Controller(s):
+pros::Controller mainController(pros::E_CONTROLLER_MASTER);
+
+//! Initializing Subsystem(s):
+
+
 /**
  * A callback function for LLEMU's center button.
  *

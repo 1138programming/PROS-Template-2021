@@ -36,10 +36,9 @@
 
 #include "api.h"
 
-#include "Subsystems/ExampleSubsystem.h"
-// #include "Subsystems/ExampleSubsystem1.h"
-// #include "Subsystems/ExampleSubsystem2.h"
-// #include "Subsystems/ExampleSubsystem3.h"
+#include "Subsystems/Base.h"
+#include "Subsystems/Arm.h"
+#include "Subsystems/Vision.h"
 
 /**
  * You should add more #includes here
