@@ -40,6 +40,8 @@
 #include "Subsystems/Arm.h"
 #include "Subsystems/Vision.h"
 
+#include "AutonChooser.h"
+
 /**
  * You should add more #includes here
  */
@@ -66,6 +68,9 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+extern pros::Controller mainController;
+
 void autonomous(void);
 void initialize(void);
 void disabled(void);

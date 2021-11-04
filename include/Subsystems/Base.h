@@ -6,8 +6,10 @@
 class Base {
     private:
         pros::Motor* leftBackMotor;
+        pros::Motor* leftMiddleMotor;
         pros::Motor* leftFrontMotor;
         pros::Motor* rightBackMotor;
+        pros::Motor* rightMiddleMotor;
         pros::Motor* rightFrontMotor;
     public:
         void move(int leftSpeed, int rightSpeed);

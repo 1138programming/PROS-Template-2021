@@ -1,28 +1,25 @@
 #include "main.h"
-#include "MainController.h"
 #include "Constants.h"
 
 //! Constructor
 Base::Base() {
     // Motor Setup
-    leftBackMotor = new pros::Motor(leftBackMotorPort, KGreenGearset, false, globalEncoderUnits);
-    leftFrontMotor = new pros::Motor(leftBackMotorPort, KGreenGearset, false, globalEncoderUnits);
-    rightBackMotor = new pros::Motor(rightBackMotorPort, KGreenGearset, true, globalEncoderUnits);
-    rightFrontMotor = new pros::Motor(rightBackMotorPort, KGreenGearset, true, globalEncoderUnits);
+    leftBackMotor = new pros::Motor(leftBackMotorPort, GreenGearset, false, globalEncoderUnits);
+    leftMiddleMotor = new pros::Motor(leftMiddleMotorPort, GreenGearset, false, globalEncoderUnits);
+    leftFrontMotor = new pros::Motor(leftBackMotorPort, GreenGearset, false, globalEncoderUnits);
+    rightBackMotor = new pros::Motor(rightBackMotorPort, GreenGearset, true, globalEncoderUnits);
+    rightMiddleMotor = new pros::Motor(leftBackMotorPort, GreenGearset, false, globalEncoderUnits);
+    rightFrontMotor = new pros::Motor(rightBackMotorPort, GreenGearset, true, globalEncoderUnits);
 }
 
 //! Functions
 void Base::move(int leftSpeed, int rightSpeed) { // Regular move functions.
     leftBackMotor->move(leftSpeed);
+    leftMiddleMotor->move(leftSpeed);
     leftFrontMotor->move(leftSpeed);
     rightBackMotor->move(rightSpeed);
+    rightMiddleMotor->move(rightSpeed);
     rightFrontMotor->move(rightSpeed);
-}
-
-void Base::tankDrive() { // Tank Drive function.
-    static int tankLeftSpeed = mainController.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y);
-    static int tankRightSpeed = mainController.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_Y);
-    move(tankLeftSpeed, tankRightSpeed);
 }
 
 void Base::arcade(bool split, bool reversed) { // Arcade Drive Function (includes Split, regular, and both sides for both). 

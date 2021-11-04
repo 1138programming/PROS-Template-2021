@@ -4,6 +4,12 @@
 pros::Controller mainController(pros::E_CONTROLLER_MASTER);
 
 //! Initializing Subsystem(s):
+Base* base = new Base();
+Arm* arm = new Arm();
+Vision visionSensor = new Vision();
+
+AutonChooser* autonChooser = new AutonChooser();
+
 
 
 /**
@@ -64,7 +70,9 @@ void competition_initialize() {}
  * will be stopped. Re-enabling the robot will restart the task, not re-start it
  * from where it left off.
  */
-void autonomous() {}
+void autonomous() {
+	autonChooser->autonChooserRun();
+}
 
 /**
  * Runs the operator control code. This function will be started in its own task
@@ -81,7 +89,10 @@ void autonomous() {}
  */
 void opcontrol() {
 	while (true) {
+		if (mainController.get_digital(pros::E_CONTROLLER_DIGITAL_UP)) {
+			autonChooser->autonInit();
+		}
 		pros::delay(20);
-		ExampleSubsystemTeleop();
+		// Base->arcade();
 	}
 }

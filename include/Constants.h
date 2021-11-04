@@ -1,21 +1,10 @@
 #include "main.h"
 
-<<<<<<< Updated upstream
-#ifndef CONSTANTS_H_
-#define CONSTANTS_H_
-// Motor ports
-static const int MOTOR_NAME_PORT = 1;
-// const int OTHER_MOTOR_NAME_PORT = 2;
-// etc.
-
-// 3-
-static const std::uint8_t THREE_WIRE_DEVICE_PORT = 'a';
-// const std::uint8_t OTHER_THREE_WIRE_DEVICE_PORT = 'b';
-=======
 #ifndef CONSTANTS_H
 #define CONSTANTS_H
 //! Motor ports
 static const int leftBackMotorPort = 1;
+static const int leftMiddleMotorPort = 1;
 static const int leftFrontMotorPort = 2;
 static const int rightBackMotorPort = 3;
 static const int rightFrontMotorPort = 4;
@@ -30,7 +19,6 @@ const int visionPort = 5;
 
 //! ADI/Legacy Ports
 static const std::uint8_t threeWireDevicePort = 'a';
->>>>>>> Stashed changes
 // etc.
 
 // V5 Motor gearsets
@@ -59,5 +47,6 @@ const int exampleEncoderTopPort = 0;
 
 // Global things that we need
 const int imuPort = 20;
+static const int maxAuton = 1;
 
 #endif
