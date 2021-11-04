@@ -75,6 +75,7 @@ extern "C" {
 
 extern pros::Controller mainController;
 
+void autonChooser(void);
 void autonomous(void);
 void initialize(void);
 void disabled(void);
