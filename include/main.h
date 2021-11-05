@@ -42,6 +42,8 @@
 #include "Subsystems/Intake.h"
 #include "Subsystems/Pneumatics.h"
 
+#include "AutonChooser.h"
+
 
 /**
  * You should add more #includes here
@@ -75,7 +77,6 @@ extern "C" {
 
 extern pros::Controller mainController;
 
-void autonChooser(void);
 void autonomous(void);
 void initialize(void);
 void disabled(void);

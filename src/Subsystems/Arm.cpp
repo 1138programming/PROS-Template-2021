@@ -4,7 +4,7 @@
 Arm::Arm() {
     // Motor Setup
     leftArmMotor = new pros::Motor(leftArmMotorPort, armMotorGearset, false, globalEncoderUnits);
-    rightArmMotor = new pros::Motor(rightArmMotorPort, armMotorGearset, false, globalEncoderUnits);
+    rightArmMotor = new pros::Motor(rightArmMotorPort, armMotorGearset, true, globalEncoderUnits);
 }
 
 //! Functions
@@ -21,7 +21,7 @@ void Arm::move(int speed) {
     }
 
   } else {
-    leftArmMotor->move(speed);
+    leftArmMotor->move(speed);//jjjjjjjj
     rightArmMotor->move(speed);
   }
 }

@@ -6,6 +6,9 @@ Arm* arm = new Arm();
 Intake* intake = new Intake();
 Base* base = new Base();
 Pneumatics* pneumatics = new Pneumatics();
+
+AutonChooser* autonChooser = new AutonChooser();
+
 /**
  * A callback function for LLEMU's center button.
  *
@@ -68,15 +71,8 @@ void competition_initialize() {}
  * will be stopped. Re-enabling the robot will restart the task, not re-start it
  * from where it left off.
  */
-
-void autonChooser()
-{
-	
-}
-
-void autonomous() 
-{
-
+void autonomous() {
+	autonChooser->autonChooserRun();
 }
 
 /**
@@ -94,6 +90,9 @@ void autonomous()
  */
 void opcontrol() {
 	while (true) {
+		if (mainController.get_digital(pros::E_CONTROLLER_DIGITAL_UP)) {
+			autonChooser->autonChooserInit();
+		}
 		pros::delay(20);
 		arm->armTeleop();
 		base->tankDrive();

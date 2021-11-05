@@ -51,4 +51,5 @@ const pros::motor_brake_mode_e_t globalBrakeMode = pros::E_MOTOR_BRAKE_HOLD;
 
 //! Global things that we need
 static const int KMaxMotorSpeed = 127;
+static const int maxAuton = 1;
 #endif
