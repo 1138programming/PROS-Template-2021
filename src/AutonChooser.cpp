@@ -1,10 +1,10 @@
-#include main.h;
+#include "main.h"
 
 AutonChooser::AutonChooser() {
     autonNumber = 1;
 }
 
-AutonChooser::autonChooserInit() {
+void AutonChooser::autonChooserInit() {
     if (autonNumber != maxAuton) {
         autonNumber++;
     }
@@ -13,12 +13,12 @@ AutonChooser::autonChooserInit() {
     }
     switch(autonNumber) {
         case 1:
-            master.set_text(mainController, 0, 0, "Auton 1");
+            mainController.set_text(0, 0, "Auton 1");
             break;
     }
 }
 
-AutonChooser::autonChooserRun() {
+void AutonChooser::autonChooserRun() {
     switch(autonNumber) {
         case 1:
             autonOne();
@@ -27,6 +27,6 @@ AutonChooser::autonChooserRun() {
 }
 
 // put actual auton here
-AutonChooser::autonOne() {
+void AutonChooser::autonOne() {
     
 }

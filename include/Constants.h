@@ -47,7 +47,6 @@ const float rotationsPerInch = 31.400156410256; // TODO check if this is correct
 const int exampleEncoderTopPort = 0;
 
 // Global things that we need
-const int imuPort = 20;
 static const int maxAuton = 1;
 
 #endif

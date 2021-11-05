@@ -10,11 +10,7 @@ Arm::Arm() {
 //! Functions
 void Arm::moveFrontArm(int armSpeed) { // Arm move function.
     frontArm->move(armSpeed);
-    backArm->move(armSpeed);
 }
 void Arm::moveBackArm(int armSpeed) { // Arm move function.
     backArm->move(armSpeed);
-    frontArm->move(armSpeed);'
-    
-    '
 }
