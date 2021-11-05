@@ -4,10 +4,11 @@
 #define CONSTANTS_H
 //! Motor ports
 static const int leftBackMotorPort = 1;
-static const int leftMiddleMotorPort = 1;
-static const int leftFrontMotorPort = 2;
-static const int rightBackMotorPort = 3;
-static const int rightFrontMotorPort = 4;
+static const int leftMiddleMotorPort = 2;
+static const int leftFrontMotorPort = 3;
+static const int rightBackMotorPort = 4;
+static const int rightMiddleMotorPort = 5;
+static const int rightFrontMotorPort = 6;
 static const int frontArmMotorPort = 8;
 static const int backArmMotorPort = 9;
 // const int otherMotorNamePort = 3;

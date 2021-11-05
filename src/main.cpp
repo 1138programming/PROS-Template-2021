@@ -6,7 +6,7 @@ pros::Controller mainController(pros::E_CONTROLLER_MASTER);
 //! Initializing Subsystem(s):
 Base* base = new Base();
 Arm* arm = new Arm();
-Vision visionSensor = new Vision();
+Vision* visionSensor = new Vision();
 
 AutonChooser* autonChooser = new AutonChooser();
 
@@ -90,7 +90,7 @@ void autonomous() {
 void opcontrol() {
 	while (true) {
 		if (mainController.get_digital(pros::E_CONTROLLER_DIGITAL_UP)) {
-			autonChooser->autonInit();
+			autonChooser->autonChooserInit();
 		}
 		pros::delay(20);
 		// Base->arcade();
