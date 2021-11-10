@@ -44,6 +44,14 @@
 
 #include "AutonChooser.h"
 
+Arm* arm;
+Intake* intake;
+Base* base;
+Pneumatics* pneumatics;
+
+AutonChooser* autonChooser;
+
+
 
 /**
  * You should add more #includes here

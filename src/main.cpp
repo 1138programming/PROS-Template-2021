@@ -2,12 +2,12 @@
 
 pros::Controller mainController(pros::E_CONTROLLER_MASTER);
 
-Arm* arm = new Arm();
-Intake* intake = new Intake();
-Base* base = new Base();
-Pneumatics* pneumatics = new Pneumatics();
+arm = new Arm();
+intake = new Intake();
+base = new Base();
+pneumatics = new Pneumatics();
 
-AutonChooser* autonChooser = new AutonChooser();
+autonChooser = new AutonChooser();
 
 /**
  * A callback function for LLEMU's center button.
@@ -94,9 +94,14 @@ void opcontrol() {
 		if (mainController.get_digital(pros::E_CONTROLLER_DIGITAL_UP)) {
 			autonChooser->autonChooserInit();
 		}
+		if (mainController.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN)) {
+			base->zeroEncoders();
+		}
+		base->getEncoders();
 		arm->armTeleop();
 		base->move(mainController.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y)*5, mainController.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_Y)*5);
 		intake->intakeTeleop();
 		pneumatics->pneumaticsTeleop();
+		
 	}
 }

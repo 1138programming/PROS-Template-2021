@@ -12,6 +12,9 @@ class Base {
       pros::Motor* backRightMotor;
   public:
       void move(int leftSpeed, int rightSpeed);
+      void moveFor(int leftSpeed, int rightSpeed, double distance);
+      void zeroEncoders();
+      void printEncoders();
       /*void tankDrive();*/
   Base();
 };
