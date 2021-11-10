@@ -1,5 +1,4 @@
 #include "main.h"
-#include <iostream>
 
 std::uint32_t startTime = 0;
 bool fiveSeconds = false;
@@ -12,8 +11,6 @@ Base::Base() {
 	backLeftMotor = new pros::Motor(backLeftBasePort, baseMotorGearset, false, globalEncoderUnits);
 	backRightMotor = new pros::Motor(backRightBasePort, baseMotorGearset, true, globalEncoderUnits);
 	
-
-
 	startTime = pros::millis();
 	fiveSeconds = false;
 }
@@ -42,14 +39,10 @@ void Base::zeroEncoders() {
 }
 
 void Base::printEncoders() {
-	// printf("FrontLeft Position");
-	// printf(frontLeftMotor->get_position());
-	// printf("FrontRight Position");
-	// printf(frontRightMotor->get_position());
-	// printf("BackLeft Position");
-	// printf(backLeftMotor->get_position());
-	// printf("BackRight Position");
-	// printf(backRightMotor->get_position());
+	printf("FrontLeft Position%f", frontLeftMotor->get_position());
+	printf("FrontRight Position%f", frontRightMotor->get_position());
+	printf("BackLeft Position%f", backLeftMotor->get_position());
+	printf("BackRight Position%f", backRightMotor->get_position());
 }
 
 /*
