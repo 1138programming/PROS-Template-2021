@@ -1,4 +1,5 @@
 #include "main.h"
+#include <iostream>
 
 std::uint32_t startTime = 0;
 bool fiveSeconds = false;
@@ -41,10 +42,14 @@ void Base::zeroEncoders() {
 }
 
 void Base::printEncoders() {
-	printf("FrontLeft Position %ffrontLeftMotor->get_position());
-	printf("FrontRight Position" + frontRightMotor->get_position());
-	printf("BackLeft Position" + backLeftMotor->get_position());
-	printf("BackRight Position" + backRightMotor->get_position());
+	// printf("FrontLeft Position");
+	// printf(frontLeftMotor->get_position());
+	// printf("FrontRight Position");
+	// printf(frontRightMotor->get_position());
+	// printf("BackLeft Position");
+	// printf(backLeftMotor->get_position());
+	// printf("BackRight Position");
+	// printf(backRightMotor->get_position());
 }
 
 /*

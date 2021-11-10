@@ -27,7 +27,7 @@ void AutonChooser::autonChooserRun() {
 }
 
 // put actual auton here
-void AutonChooser::autonOne() {
-    pneumatics->S_FrontPistonOut();
-    base->moveFor(60, 60, 61.0);
-}
+// void AutonChooser::autonOne() {
+//     pneumatics->S_FrontPistonOut();
+//     base->moveFor(60, 60, 61.0);
+// }

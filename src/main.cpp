@@ -2,12 +2,12 @@
 
 pros::Controller mainController(pros::E_CONTROLLER_MASTER);
 
-arm = new Arm();
-intake = new Intake();
-base = new Base();
-pneumatics = new Pneumatics();
+static int autonNumber = 0;
 
-autonChooser = new AutonChooser();
+Arm* arm = new Arm();
+Intake* intake = new Intake();
+Base* base = new Base();
+Pneumatics* pneumatics = new Pneumatics();
 
 /**
  * A callback function for LLEMU's center button.
@@ -40,7 +40,7 @@ void initialize() {
 	pros::lcd::set_text(1, "Hello PROS User!");
 
 	pros::lcd::register_btn1_cb(on_center_button);
-	autonChooser->autonChooserInit();
+	autonChooserInit();
 }
 
 /**
@@ -73,7 +73,7 @@ void competition_initialize() {}
  * from where it left off.
  */
 void autonomous() {
-	autonChooser->autonChooserRun();
+	autonChooserRun();
 }
 
 /**
@@ -92,16 +92,43 @@ void autonomous() {
 void opcontrol() {
 	while (true) {
 		if (mainController.get_digital(pros::E_CONTROLLER_DIGITAL_UP)) {
-			autonChooser->autonChooserInit();
+			autonChooserInit();
 		}
 		if (mainController.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN)) {
 			base->zeroEncoders();
 		}
-		base->getEncoders();
+		base->printEncoders();
 		arm->armTeleop();
 		base->move(mainController.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y)*5, mainController.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_Y)*5);
 		intake->intakeTeleop();
 		pneumatics->pneumaticsTeleop();
 		
 	}
+}
+
+void autonChooserInit() {
+    if (autonNumber != maxAuton) {
+        autonNumber++;
+    }
+    else {
+        autonNumber = 1;
+    }
+    switch(autonNumber) {
+        case 1:
+            mainController.set_text(0, 0, "Auton 1");
+            break;
+    }
+}
+
+void autonChooserRun() {
+    switch(autonNumber) {
+        case 1:
+            autonOne();
+            break;
+    }
+}
+
+void autonOne() {
+    pneumatics->S_FrontPistonOut();
+    base->moveFor(60, 60, 61.0);
 }

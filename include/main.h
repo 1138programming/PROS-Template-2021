@@ -44,15 +44,6 @@
 
 #include "AutonChooser.h"
 
-Arm* arm;
-Intake* intake;
-Base* base;
-Pneumatics* pneumatics;
-
-AutonChooser* autonChooser;
-
-
-
 /**
  * You should add more #includes here
  */
@@ -90,6 +81,9 @@ void initialize(void);
 void disabled(void);
 void competition_initialize(void);
 void opcontrol(void);
+void autonChooserInit();
+void autonChooserRun();
+void autonOne();
 #ifdef __cplusplus
 }
 #endif
