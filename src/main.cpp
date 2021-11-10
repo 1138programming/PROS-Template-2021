@@ -40,6 +40,7 @@ void initialize() {
 	pros::lcd::set_text(1, "Hello PROS User!");
 
 	pros::lcd::register_btn1_cb(on_center_button);
+	autonChooser->autonChooserInit();
 }
 
 /**
@@ -93,9 +94,8 @@ void opcontrol() {
 		if (mainController.get_digital(pros::E_CONTROLLER_DIGITAL_UP)) {
 			autonChooser->autonChooserInit();
 		}
-		pros::delay(20);
 		arm->armTeleop();
-		base->tankDrive();
+		base->move(mainController.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y)*5, mainController.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_Y)*5);
 		intake->intakeTeleop();
 		pneumatics->pneumaticsTeleop();
 	}

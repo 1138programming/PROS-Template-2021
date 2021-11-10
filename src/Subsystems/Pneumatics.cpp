@@ -8,16 +8,15 @@ Pneumatics::Pneumatics() {
 
 //! Functions
 void Pneumatics::S_FrontPistonIn() {
-    if (Pneumatics::pneumaticsFrontPistonPos)
+    if (pneumaticsFrontPistonPos)
     {
-        FrontPiston->set_value(false);
+    	FrontPiston->set_value(false);
         pneumaticsFrontPistonPos = false;
     }
-    
 }
 
 void Pneumatics::S_BackPistonIn() {
-    if (Pneumatics::pneumaticsBackPistonPos)
+    if (pneumaticsBackPistonPos)
     {
         BackPiston->set_value(false);
         pneumaticsBackPistonPos = false;
@@ -25,7 +24,7 @@ void Pneumatics::S_BackPistonIn() {
 }
 
 void Pneumatics::S_FrontPistonOut() {
-    if (!Pneumatics::pneumaticsFrontPistonPos)
+    if (!pneumaticsFrontPistonPos)
     {
         FrontPiston->set_value(true);
         pneumaticsFrontPistonPos = true;
@@ -41,23 +40,23 @@ void Pneumatics::S_BackPistonOut() {
 }
 
 void Pneumatics::pneumaticsTeleop() { // Tank Drive function.
-    static bool FrontPneumaticsOut = mainController.get_digital(pros::E_CONTROLLER_DIGITAL_UP);
-    static bool FrontPneumaticsIn = mainController.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN);
-    static bool BackPneumaticsOut = mainController.get_digital(pros::E_CONTROLLER_DIGITAL_X);
-    static bool BackPneumaticsIn = mainController.get_digital(pros::E_CONTROLLER_DIGITAL_B);
-    if(FrontPneumaticsOut == true)
+    FrontPneumaticsOut = mainController.get_digital(pros::E_CONTROLLER_DIGITAL_UP);
+    FrontPneumaticsIn = mainController.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN);
+    BackPneumaticsOut = mainController.get_digital(pros::E_CONTROLLER_DIGITAL_X);
+    BackPneumaticsIn = mainController.get_digital(pros::E_CONTROLLER_DIGITAL_B);
+    if(FrontPneumaticsOut)
     {
       S_FrontPistonOut();
     }
-    if(FrontPneumaticsIn == true)
+    if(FrontPneumaticsIn)
     {
       S_FrontPistonIn();
     }
-    if(BackPneumaticsOut == true)
+    if(BackPneumaticsOut)
     {
       S_BackPistonOut();
     }
-    if(BackPneumaticsIn == true)
+    if(BackPneumaticsIn)
     {
       S_BackPistonIn();
     }

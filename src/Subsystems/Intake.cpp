@@ -13,11 +13,11 @@ void Intake::move(int speed) {
 
 void Intake::intakeTeleop() { // Tank Drive function.
     static bool stoppable = true;
-    if(mainController.get_digital(pros::E_CONTROLLER_DIGITAL_L1))
+    if(mainController.get_digital(pros::E_CONTROLLER_DIGITAL_L2))
     {
       move(KMaxMotorSpeed);
     }
-    else if (mainController.get_digital(pros::E_CONTROLLER_DIGITAL_L2)) {
+    else if (mainController.get_digital(pros::E_CONTROLLER_DIGITAL_L1)) {
       move(-KMaxMotorSpeed);
     }
     else {

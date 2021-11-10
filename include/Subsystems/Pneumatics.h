@@ -7,9 +7,13 @@ class Pneumatics {
   private:
     pros::ADIDigitalOut* FrontPiston;
     pros::ADIDigitalOut* BackPiston;
-  public:
+    bool FrontPneumaticsOut;
+    bool FrontPneumaticsIn;
+    bool BackPneumaticsOut;
+    bool BackPneumaticsIn;
     bool pneumaticsFrontPistonPos;
     bool pneumaticsBackPistonPos;
+  public:
     void pneumaticsTeleop();
     void S_FrontPistonOut();
     void S_FrontPistonIn();

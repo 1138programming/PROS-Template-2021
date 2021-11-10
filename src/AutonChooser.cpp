@@ -1,7 +1,7 @@
 #include "main.h"
 
 AutonChooser::AutonChooser() {
-    autonNumber = 1;
+    autonNumber = 0;
 }
 
 void AutonChooser::autonChooserInit() {
