@@ -110,17 +110,33 @@ void opcontrol() {
 
 void autonOne() {
     pneumatics->S_FrontPistonOut();
-	//turn right 15 degrees
+	base->moveFor(70, -70, 15);//turn left
     base->moveFor(100, 100, 61.0);
 	base->move(0, 0);
 	pneumatics->S_FrontPistonIn();
 	pros::delay(400);
 	base->moveFor(-100, -100, 58);
-	//turn left 100 degrees
+	base->moveFor(-100, 100, 100);//turn right
 	base->moveFor(100, 100, 10);
 	pneumatics->S_FrontPistonOut();
 	base->moveFor(-100, -100, 10);
+	base->moveFor(-100, 100, 10);//turn right
 	//turn right 100 degrees
+}
+
+void autonTwo() {
+	pneumatics->S_FrontPistonOut();
+	base->moveFor(-100, 100, 15);//turn right
+    base->moveFor(100, 100, 61.0);
+	base->move(0, 0);
+	pneumatics->S_FrontPistonIn();
+	pros::delay(400);
+	base->moveFor(-100, -100, 58);
+	base->moveFor(100, -100, 100);//turn left
+	base->moveFor(100, 100, 10);
+	pneumatics->S_FrontPistonOut();
+	base->moveFor(-100, -100, 10);
+	base->moveFor(100, -100, 100);//turn left
 }
 
 void autonChooserInit() {
@@ -134,6 +150,9 @@ void autonChooserInit() {
         case 1:
             mainController.set_text(0, 0, "Auton 1");
             break;
+		case 2:
+            mainController.set_text(0, 0, "Auton 2");
+            break;
     }
 }
 
@@ -141,6 +160,9 @@ void autonChooserRun() {
     switch(autonNumber) {
         case 1:
             autonOne();
+            break;
+		case 2:
+            autonTwo();
             break;
     }
 }
