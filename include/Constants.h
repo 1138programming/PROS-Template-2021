@@ -6,6 +6,7 @@
 static const int rightArmMotorPort = 15;
 static const int leftArmMotorPort = 18;
 static const int intakeMotorPort = 19;
+static const int clawMotorPort = 6;
 static const int frontLeftBasePort = 9;
 static const int frontRightBasePort = 16;
 static const int backLeftBasePort = 3;
@@ -14,7 +15,6 @@ static const int backRightBasePort = 10;
 static const std::uint8_t threeWireDevicePort = 'a';
 
 static const std::uint8_t DIGITAL_PISTON_PORT_FRONT = 'e';
-static const std::uint8_t DIGITAL_PISTON_PORT_BACK = 'h';
 // const int otherMotorNamePort = 3;
 // etc.
 
@@ -35,6 +35,7 @@ const double kMidTowerPos = 3000;
 
 static const pros::motor_gearset_e_t  baseMotorGearset = pros::E_MOTOR_GEARSET_18;
 static const pros::motor_gearset_e_t  intakeMotorGearset = pros::E_MOTOR_GEARSET_18;
+static const pros::motor_gearset_e_t  clawMotorGearset = pros::E_MOTOR_GEARSET_18;
 static const pros::motor_gearset_e_t  armMotorGearset = pros::E_MOTOR_GEARSET_06;
 
 //! ADI/Legacy Port

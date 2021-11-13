@@ -6,6 +6,7 @@ static int autonNumber = 0;
 
 Arm* arm = new Arm();
 Intake* intake = new Intake();
+Claw* claw = new Claw();
 Base* base = new Base();
 Pneumatics* pneumatics = new Pneumatics();
 
@@ -101,6 +102,7 @@ void opcontrol() {
 		arm->armTeleop();
 		base->move(mainController.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y)*5, mainController.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_Y)*5);
 		intake->intakeTeleop();
+		claw->clawTeleop();
 		pneumatics->pneumaticsTeleop();
 		
 	}

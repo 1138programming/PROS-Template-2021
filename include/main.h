@@ -40,9 +40,10 @@
 #include "Subsystems/Arm.h"
 #include "Subsystems/Base.h"
 #include "Subsystems/Intake.h"
+#include "Subsystems/Claw.h"
 #include "Subsystems/Pneumatics.h"
 
-#include "AutonChooser.h"
+//#include "AutonChooser.h"
 
 /**
  * You should add more #includes here
