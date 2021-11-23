@@ -3,6 +3,9 @@
 //! Initializing Controller(s):
 pros::Controller mainController(pros::E_CONTROLLER_MASTER);
 
+//auton chooser counter
+static int autonNumber = 0;
+
 //! Initializing Subsystem(s):
 ExampleSubsystem* exampleSubsystem = new ExampleSubsystem();
 
@@ -65,7 +68,9 @@ void competition_initialize() {}
  * will be stopped. Re-enabling the robot will restart the task, not re-start it
  * from where it left off.
  */
-void autonomous() {}
+void autonomous() {
+	autonChooserRun();
+}
 
 /**
  * Runs the operator control code. This function will be started in its own task
@@ -82,8 +87,44 @@ void autonomous() {}
  */
 void opcontrol() {
 	while (true) {
-		pros::delay(20);
-		// exampleSubsystem->arcade();
-		// exampleSubsystem->tankDrive();
-	}
+			if (mainController.get_digital(pros::E_CONTROLLER_DIGITAL_UP)) {
+				autonChooserInit();
+			}
+			if (mainController.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN)) {
+				exampleSubsystem->zeroEncoders();
+			}
+			//run subsystem teleop functions here			
+		}
+}
+
+//define autons here
+
+void autonChooserInit() {
+    if (autonNumber != maxAuton) {
+        autonNumber++;
+    }
+    else {
+        autonNumber = 1;
+    }
+    switch(autonNumber) {
+        case 1:
+            mainController.set_text(0, 0, "Auton 1");
+            break;
+		case 2:
+            mainController.set_text(0, 0, "Auton 2");
+            break;
+		//etc.
+    }
+}
+
+void autonChooserRun() {
+    switch(autonNumber) {
+        case 1:
+            //autonOne();
+            break;
+		case 2:
+            //autonTwo();
+            break;
+		//etc.
+    }
 }
